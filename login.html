@@ -1,1 +1,100 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="icon" type="image/png" href="Images/projectwrplogo.png"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.cdnfonts.com/css/shantell-sans" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/frosty-fizz" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("Images/Bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: blur(10px) brightness(0.6);
+      -webkit-filter: blur(10px) brightness(0.6);
+      z-index: -1;
+    }
+    img{
+      mix-blend-mode: hard-light;
+      padding-top: -5px;
+    }
+   img:hover {
+    transform: translateY(-5px);
+    border-color: gold;
+    box-shadow: 0 0 20px yellow;
+    transition: all 0.3s ease;
+}
+  </style>
+</head>
+
+<body class="flex items-center justify-center px-4 py-8 sm:py-12">
+
+  <div class="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+
+    <div class="bg-black rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8">
+      <div class="text-center mb-4">
+        <img 
+          src="Images/projectwrplogo.png" 
+          alt="Project World Logo"
+          class="mx-auto max-w-[120px] sm:max-w-[140px] lg:max-w-[160px]"
+        >
+      </div>
+      <h2 class="text-xl text-center sm:text-2xl font-bold text-white mb-2">Login</h2>
+      <p class="text-white text-center mb-6 text-lg sm:text-base">
+       Project World Roleplay
+      </p>
+
+      <form id="signupForm" class="space-y-4 sm:space-y-5">
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-yellow-200">Email</label>
+          <input type="email" id="email" required
+            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            placeholder="name@example.com">
+        </div>
+
+        <div>
+          <label class="block mb-1 text-sm font-medium text-yellow-200">Password</label>
+          <input type="password" id="password" required
+            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            placeholder="password">
+        </div>
+        
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-yellow-500 to-white text-gray-800 py-2.5 rounded-lg font-semibold hover:opacity-90 transition">
+          Login
+        </button>
+
+        <p class="text-center text-sm text-white">
+          Dont have an account?
+          <a href="Register.html" class="font-semibold hover:underline" style="color: rgb(242, 255, 5);">Register Here!</a>
+        </p>
+
+      </form>
+
+      <div class="mt-6 pt-4 border-t text-center">
+        <p class="text-xs text-white">
+          © 2025 Project World Roleplay. <span class="text-yellow-200">All rights reserved.</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
