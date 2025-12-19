@@ -1,131 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <link rel="icon" type="image/png" href="projectwrplogo.png"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-  <link rel="icon" type="image/png" href="projectwrplogo.png"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Fonts -->
+  <link href="./style.css" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Font  -->
   <link href="https://fonts.cdnfonts.com/css/shantell-sans" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/frosty-fizz" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("Bg.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      filter: blur(10px) brightness(0.6);
-      -webkit-filter: blur(10px) brightness(0.6);
-      z-index: -1;
-    }
-    img{
-      mix-blend-mode: hard-light;
-      padding-top: -5px;
-    }
-   img:hover {
-    transform: translateY(-5px);
-    border-color: gold;
-    box-shadow: 0 0 20px yellow;
-    transition: all 0.3s ease;
-}
-  </style>
+  <title>Project World Roleplay</title>
 </head>
-
-<body class="flex items-center justify-center px-4 py-8 sm:py-12">
-
-  <div class="w-full max-w-sm sm:max-w-md lg:max-w-lg">
-
-    <div class="bg-black rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8">
-      <div class="text-center mb-4">
-        <a href="Home.html">
-        <img 
-          src="projectwrplogo.png" 
-          alt="Project World Logo"
-          class="mx-auto max-w-[120px] sm:max-w-[140px] lg:max-w-[160px]"
-        >
+<body>
+  <header>
+    <nav class="fixed w-full z-20 top-0 px-4 py-3 md:px-6 md:py-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="#home" class="flex items-center space-x-2 md:space-x-3">
+          <img src="projectwrplogo.png" class="h-6 md:h-7" alt="Logo" />
+          <span class="logo-text text-lg md:text-xl font-semibold text-white">
+            Project <span class="text-yellow-200">World</span> Roleplay
+          </span>
         </a>
+
+     <button class="mobile-menu-button text-white text-2xl" onclick="toggleMenu()" style="border: none; outline: none; background: transparent;">
+                <i class="fa fa-bars"></i>
+      </button>
+
+        <ul id="navMenu" class="flex items-center space-x-1 md:space-x-6 font-medium">
+          <li>
+            <a href="#" id="hoverText" class="text-white py-2 px-3">
+              <i class="fa fa-home mr-2"></i>Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" id="hoverText" class="text-white py-2 px-3">
+              <i class="fa fa-star mr-2"></i>About us
+            </a>
+          </li>
+          <li>
+            <a href="#features" id="hoverText" class="text-white py-2 px-3">
+              <i class="fa fa-book mr-2"></i>Features
+            </a>
+          </li>
+          <li>
+            <a href="#content" id="hoverText" class="text-white py-2 px-3">
+              <i class="fa fa-camera mr-2"></i>Content
+            </a>
+          </li>
+          <li>
+            <a href="Register.html" id="hoverText" class="text-white py-2 px-3">
+              <i class="fa fa-user mr-2"></i>Sign-up
+            </a>
+          </li>
+        </ul>
       </div>
-      <h2 class="text-xl text-center sm:text-2xl font-bold text-white mb-2">Sign Up</h2>
-      <p class="text-white text-center mb-6 text-lg sm:text-base">
-       Project World Roleplay
-      </p>
+    </nav>
+  </header>
+<!-- Content goes here -->
+  <main class="pt-20">
+    <!-- Tagline -->
+     <!-- Home Section -->
+     <section class="text-3xl">
+      <h1 class="text-center font-bold font mt-28 text-white">Where every player finds a home, and <span class="text-yellow-300">every story finds meaning.</span></h1>
+      <p id="p1" class="text-center text-2xl">A next-generation SA:MP experience built for immersive storytelling.</p>
+     </section>
+     <!-- Button -->
+  <div class="button-container">
+      <a href="https://discord.gg/gu7v58Rg6t"><button class="btn-neon">Join Our Server!</button></a>
+  </div>
+  </main>
+  <!-- About Us Section -->
+   <section id="about" class="about-section">
+    <hr class="style-seven">
+    <h2 class="text-center">About Us</h2>
+    <p id="p2">Our server is unlike any other, as we strive to create a best gaming experience. A non toxic community that created to provide fun and fair gameplay to samp players.</p>
+    <p id="p3">Project World Roleplay is a dynamic SA:MP server offering immersive story-driven gameplay, realistic systems. Join a world filled with roleplay opportunities — from law enforcement and crime to business, government, and everyday life.</p>
+  </section>
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <h2 class="text-center">Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>FiveM Features</h3>
+      </div>
 
-      <form id="signupForm" class="space-y-4 sm:space-y-5">
+      <div class="feature-card">
+        <h3>Unique Jobs</h3>
+      </div>
 
-        <div>
-          <label class="block mb-1 text-sm font-medium text-yellow-200">Full Name</label>
-          <input type="text" id="name" required
-            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-            placeholder="Full Name">
+      <div class="feature-card">
+        <h3>Quality Mappings</h3>
+      </div>
+
+      <div class="feature-card">
+        <h3>Food Faction</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Picture Features Slider -->
+  <section id="content" class="slider-section">
+    <h2 class="text-center">Content Showcase</h2>
+    
+    <div class="slider-container">
+      <div class="slider-wrapper">
+        <div class="slide active">
+          <img src="inv.png" alt="Inventory System">
+          <div class="slide-title"> FiveM Inventory System</div>
         </div>
-
-        <div>
-          <label class="block mb-1 text-sm font-medium text-yellow-200">Email</label>
-          <input type="email" id="email" required
-            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-            placeholder="name@example.com">
+        <div class="slide">
+          <img src="grow.png" alt="Grow Garden System">
+          <div class="slide-title">Grow Garden System</div>
         </div>
-
-        <div>
-          <label class="block mb-1 text-sm font-medium text-yellow-200">Password</label>
-          <input type="password" id="password" required
-            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-            placeholder="password">
+        <div class="slide">
+          <img src="customcar.png" alt="Custom Car System">
+          <div class="slide-title">Custom Car System</div>
         </div>
-
-        <div class="flex items-center">
-          <input type="checkbox" id="terms" class="w-4 h-4">
-          <a href="terms.html" for="terms" class="ml-2 text-sm text-blue-300 hover:underline" style="cursor: pointer;">
-            I agree to the Terms and Conditions
+         <div class="slide">
+          <img src="character.png" alt="Custom Car System">
+          <div class="slide-title">Character Milestone System</div>
+        </div>
+         <div class="slide">
+          <img src="global Title.png" alt="Custom Car System">
+          <div class="slide-title">Global Title System</div>
+        </div>
+      </div>
+      
+      <button class="slider-btn prev" onclick="changeSlide(-1)">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn next" onclick="changeSlide(1)">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+      
+      <div class="slider-dots">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+    </div>
+    <!-- footer section -->
+     
+  <footer>
+    <div class="footer-content">
+      <!-- About Section -->
+      <div class="footer-section footer-about">
+        <div class="footer-logo">
+          <span>Project <span class="highlight">World</span> Roleplay</span>
+        </div>
+        <p>A next-generation SA:MP experience built for immersive storytelling and realistic gameplay.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/share/g/1KL3ANbPUc/" id="fb" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.youtube.com/@projectworldrp" id="yt" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://discord.gg/gu7v58Rg6t" id="dc" aria-label="Discord">
+            <i class="fab fa-discord"></i>
           </a>
         </div>
-
-        <button type="submit"
-          class="w-full bg-gradient-to-r from-yellow-500 to-white text-gray-800 py-2.5 rounded-lg font-semibold hover:opacity-90 transition">
-          Sign Up
-        </button>
-
-        <p class="text-center text-sm text-white">
-          Already have an account?
-          <a href="login.html" class="font-semibold hover:underline" style="color: rgb(242, 255, 5);">Log in</a>
-        </p>
-
-      </form>
-
-      <div class="mt-6 pt-4 border-t text-center">
-        <p class="text-xs text-white">
-          © 2025 Project World Roleplay. <span class="text-yellow-200">All rights reserved.</span>
-        </p>
       </div>
 
+      <!-- Quick Links -->
+      <div class="footer-section footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#content">Content</a></li>
+          <li><a href="Register.html">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section footer-contact">
+        <h3>Get In Touch</h3>
+        <p><i class="fas fa-users"></i> Join our Discord community</p>
+      </div>
     </div>
-  </div>
 
-  <script>
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      if (!document.getElementById('terms').checked) {
-        alert('Please agree to the Terms and Conditions.');
-        return;
-      }
-
-      alert('Sign up successful!');
-    });
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>
+        <i class="fas fa-copyright"></i>
+        2025 Project World Roleplay. All Rights Reserved.
+        <span style="color: rgb(38, 96, 231);">|</span>
+      </p>
+    </div>
+  </footer>
+  <script src="home.js">
   </script>
-
 </body>
 </html>
