@@ -318,25 +318,8 @@
         window.location.href = 'Login.html';
       }, 1500);
     });
-
-    // Input validation feedback
-    const inputs = document.querySelectorAll('input[required]');
-    inputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        if (this.value.trim() === '') {
-          this.style.borderColor = '#ef4444';
-        } else {
-          this.style.borderColor = '#d1d5db';
-        }
-      });
-
-      input.addEventListener('input', function() {
-        if (this.value.trim() !== '') {
-          this.style.borderColor = '#10b981';
-        }
-      });
-    });
   </script>
 
 </body>
 </html>
+
