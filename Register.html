@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-  <link rel="icon" type="image/png" href="projectwrplogo.png"/>
+  <title>Login - Project World Roleplay</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Fonts -->
-  <link href="https://fonts.cdnfonts.com/css/shantell-sans" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/frosty-fizz" rel="stylesheet">
-
+  
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
+
     body::before {
       content: "";
       position: fixed;
@@ -24,7 +29,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url("Bg.jpg");
+      background-image: url("Images/Bg.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -32,84 +37,254 @@
       -webkit-filter: blur(10px) brightness(0.6);
       z-index: -1;
     }
-    img{
-      mix-blend-mode: hard-light;
-      padding-top: -5px;
+
+    .logo-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
     }
-   img:hover {
-    transform: translateY(-5px);
-    border-color: gold;
-    box-shadow: 0 0 20px yellow;
-    transition: all 0.3s ease;
-}
+
+    .logo-img {
+      mix-blend-mode: hard-light;
+      max-width: 120px;
+      transition: all 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: translateY(-5px);
+      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+    }
+
+    .login-card {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .login-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .input-field {
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .input-field:focus {
+      background: white;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(250, 204, 21, 0.3);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #fbbf24 0%, #ffffff 100%);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(251, 191, 36, 0.4);
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .submit-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .user-icon {
+      position: absolute;
+      top: -15px;
+      right: 50%;
+      transform: translateX(50%);
+      background: linear-gradient(135deg, #fbbf24, #facc15);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.5);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(50%) translateY(0); }
+      50% { transform: translateX(50%) translateY(-5px); }
+    }
+
+    .link-text {
+      transition: all 0.3s ease;
+    }
+
+    .link-text:hover {
+      transform: translateX(3px);
+      text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 640px) {
+      .logo-img {
+        max-width: 140px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .logo-img {
+        max-width: 160px;
+      }
+    }
+
+    /* Loading animation */
+    .loading {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .loading::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -8px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 
 <body class="flex items-center justify-center px-4 py-8 sm:py-12">
 
   <div class="w-full max-w-sm sm:max-w-md lg:max-w-lg">
-
-    <div class="bg-black rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8">
-      <div class="text-center mb-4">
-        <a href="Home.html">
-        <img 
-          src="projectwrplogo.png" 
-          alt="Project World Logo"
-          class="mx-auto max-w-[120px] sm:max-w-[140px] lg:max-w-[160px]"
-        >
-        </a>
+    
+    <div class="login-card rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-10 relative">
+      
+      <!-- Floating user icon -->
+      <div class="user-icon">
+        <i class="fa fa-user text-gray-800 text-lg"></i>
       </div>
-      <i class="fa fa-user mx-auto text-white" style="top: -25px; left: 220px; position: relative;"></i>
-      <h2 class="text-xl text-center sm:text-2xl font-bold text-white mb-2">Sign Up</h2>
-      <p class="text-white text-center mb-6 text-lg sm:text-base">
-       Project World Roleplay
+
+      <!-- Logo -->
+      <div class="logo-container">
+        <img 
+          src="Images/projectwrplogo.png" 
+          alt="Project World Logo"
+          class="logo-img"
+          onerror="this.style.display='none'"
+        >
+      </div>
+
+      <!-- Header -->
+      <h2 class="text-2xl sm:text-3xl text-center font-bold text-white mb-2">
+        Welcome Back
+      </h2>
+      <p class="text-gray-300 text-center mb-8 text-sm sm:text-base">
+        Project World Roleplay
       </p>
 
-      <form id="signupForm" class="space-y-4 sm:space-y-5">
+      <!-- Form -->
+      <form id="loginForm" class="space-y-5 sm:space-y-6">
+        <!-- Full Name Field -->
+          <div>
+          <label class="block mb-2 text-sm font-medium text-yellow-200">
+            <i class="fa fa-user mr-2"></i>Full Name
+          </label>
+          <input 
+            type="name" 
+            id="fullName" 
+            required
+            class="input-field w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:outline-none"
+            placeholder="Full Name"
+          >
+        </div>
 
+        <!-- Email Field -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-yellow-200">Full Name</label>
-          <input type="text" id="name" required
-            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-            placeholder="Full Name">
+          <label class="block mb-2 text-sm font-medium text-yellow-200">
+            <i class="fa fa-envelope mr-2"></i>Email Address
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            required
+            class="input-field w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:outline-none"
+            placeholder="name@example.com"
+          >
         </div>
 
+        <!-- Password Field -->
         <div>
-          <label class="block mb-1 text-sm font-medium text-yellow-200">Email</label>
-          <input type="email" id="email" required
-            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-            placeholder="name@example.com">
+          <label class="block mb-2 text-sm font-medium text-yellow-200">
+            <i class="fa fa-lock mr-2"></i>Password
+          </label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="password" 
+              required
+              class="input-field w-full border border-gray-300 rounded-lg px-4 py-3 pr-12 focus:ring-2 focus:ring-yellow-400 focus:border-transparent focus:outline-none"
+              placeholder="Enter your password"
+            >
+            <button 
+              type="button"
+              id="togglePassword"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
+            >
+              <i class="fa fa-eye" id="eyeIcon"></i>
+            </button>
+          </div>
         </div>
-
-        <div>
-          <label class="block mb-1 text-sm font-medium text-yellow-200">Password</label>
-          <input type="password" id="password" required
-            class="w-full border border-slate-300 rounded-lg px-3 sm:px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-            placeholder="password">
-        </div>
-
-        <div class="flex items-center">
-          <input type="checkbox" id="terms" class="w-4 h-4">
-          <a href="terms.html" for="terms" class="ml-2 text-sm text-blue-300 hover:underline" style="cursor: pointer;">
-            I agree to the Terms and Conditions
-          </a>
-        </div>
-
-        <button type="submit"
-          class="w-full bg-gradient-to-r from-yellow-500 to-white text-gray-800 py-2.5 rounded-lg font-semibold hover:opacity-90 transition">
-          Sign Up
+        
+        <!-- Submit Button -->
+        <button 
+          type="submit"
+          class="submit-btn w-full text-gray-800 py-3 rounded-lg font-semibold relative z-10"
+        >
+          <span class="relative z-10">Register for an Account</span>
         </button>
 
-        <p class="text-center text-sm text-white">
+        <!-- Register Link -->
+        <p class="text-center text-sm text-gray-300 pt-2">
           Already have an account?
-          <a href="login.html" class="font-semibold hover:underline" style="color: rgb(242, 255, 5);">Log in</a>
+          <a href="Login.html" class="link-text inline-block font-semibold text-yellow-300 hover:underline ml-1">
+            Login Here
+          </a>
         </p>
 
       </form>
 
-      <div class="mt-6 pt-4 border-t text-center">
-        <p class="text-xs text-white">
-          © 2025 Project World Roleplay. <span class="text-yellow-200">All rights reserved.</span>
+      <!-- Footer -->
+      <div class="mt-8 pt-6 border-t border-gray-700 text-center">
+        <p class="text-xs text-gray-400">
+          © 2025 Project World Roleplay. 
+          <span class="text-yellow-200">All rights reserved.</span>
         </p>
       </div>
 
@@ -117,20 +292,51 @@
   </div>
 
   <script>
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
+    // Toggle password visibility
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    togglePassword.addEventListener('click', function() {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      eyeIcon.classList.toggle('fa-eye');
+      eyeIcon.classList.toggle('fa-eye-slash');
+    });
+
+    // Form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Registering...';
+      
+      // Simulate login delay
+      setTimeout(() => {
+        alert('Registration successful! Redirecting to login page.');
+        window.location.href = 'Login.html';
+      }, 1500);
+    });
 
-      if (!document.getElementById('terms').checked) {
-        alert('Please agree to the Terms and Conditions.');
-        return;
-      }
+    // Input validation feedback
+    const inputs = document.querySelectorAll('input[required]');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.value.trim() === '') {
+          this.style.borderColor = '#ef4444';
+        } else {
+          this.style.borderColor = '#d1d5db';
+        }
+      });
 
-      alert('Sign up successful!');
-      window.location.href = 'login.html';
+      input.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+          this.style.borderColor = '#10b981';
+        }
+      });
     });
   </script>
 
 </body>
 </html>
-
-
