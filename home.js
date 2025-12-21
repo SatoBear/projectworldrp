@@ -52,3 +52,61 @@
         menu.classList.remove('active');
       }
     });
+    function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('active');
+}
+
+// Theme Toggle Function
+function toggleTheme() {
+  const body = document.body;
+  const themeIcon = document.getElementById('themeIcon');
+  
+  // Toggle dark mode class
+  body.classList.toggle('dark-mode');
+  
+  // Check if dark mode is active
+  if (body.classList.contains('dark-mode')) {
+    // Change to sun icon for light mode option
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+    // Save preference
+    localStorage.setItem('theme', 'dark');
+  } else {
+    // Change back to moon icon for dark mode option
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
+    // Save preference
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Load saved theme on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  const body = document.body;
+  const themeIcon = document.getElementById('themeIcon');
+  
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+  }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+  const navMenu = document.getElementById('navMenu');
+  const menuButton = document.querySelector('.mobile-menu-button');
+  
+  if (!navMenu.contains(e.target) && !menuButton.contains(e.target)) {
+    navMenu.classList.remove('active');
+  }
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('#navMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('active');
+  });
+});
